@@ -1,0 +1,206 @@
+<div class="wrapper">
+
+</div>
+<div class="container" style="height: 1000px">
+  <div class="process-wrapper">
+    <div class="f-s-process process"> </div>
+    <div class="s-t-process process"></div>
+    <div class="process-container">
+      <div class="first-step">
+        <i class="fas fa-user circle-item"></i>
+      </div>
+
+      <div class="second-step">
+        <i class="fas fa-money-bill circle-item"></i>
+      </div>
+
+      <div class="third-step ">
+        <i class="fas fa-check circle-item"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3 bill-info">
+      <div class="bill-info-header customer-info-header">
+        THÔNG TIN ĐƠN HÀNG
+      </div>
+      <div class="none-item">
+        <img src="/img/opps.png" alt="" class="none-item-img">
+        <p>Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+        <a href="http://localhost:3000/items/623ec6a908d67505a1959bbe/addAndContinue?quantiny=1"
+          class="go-on-buying">
+          Mua ngay
+        </a>
+      </div>
+      {{#items}}
+      <div class="same-item-container bill-info-item">
+        <a href="items/{{this._id}}" class="same-item-link">
+          <img src="{{this.imgAddress}}" class="same-item-img" alt="">
+          <div class="same-item-info-container">
+            <div class="same-item-name">
+              {{this.name}}
+            </div>
+            <div class="same-item-price">
+              {{this.price}}
+            </div>
+          </div>
+        </a>
+        <div class="quantiny-container">
+          <button class="quantiny-button qunatiny-button-decrease">-</button>
+          <div class="same-item-quanity"></div>
+          <button class="quantiny-button qunatiny-button-plus">+</button>
+        </div>
+        <button class="same-item-delete">Xóa</button>
+      </div>
+      {{/items}}
+    <div class="delete-wrapper">
+      <div class="delete-notification-container bought-disabled">
+      <p>Bạn thực sự muốn xóa sản phẩm này khỏi giỏ hàng</p>
+      <div class="button-container">
+        <button class="btn-dark cancel-btn">Hủy</button>
+        <button class="btn-danger delete-btn">Xóa</button>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-9 customer-info">
+      <form class="send-to" action="cart/submit" method="post">
+        <div class="step-1">
+          <div class="customer-info-header">
+            ĐỊA CHỈ GIAO HÀNG
+          </div>
+          <div class="cust-info  cust-flex">
+            <input type="text" name="custName" class="cust-name cust-flex-item" placeholder="Họ và tên">
+            <div class="cust-name-validate cust-validate">Vui lòng nhập tên</div>
+            <input type="text" name="custPhone" class="cust-phone cust-flex-item" placeholder="Số điện thoại">
+            <div class="cust-phone-validate cust-validate">Vui lòng nhập số điện thoại</div>
+          </div>
+          <div class="cust-convince cust-flex">
+            <select name="calc_shipping_provinces" class="convince" required=""
+              style="padding: 0 10px;margin:20px 10px;height: 40px;border: 1px solid #ccc; border-radius: 5px;">
+              <option value="">Tỉnh / Thành phố</option>
+            </select>
+            <select name="calc_shipping_district" required=""
+              style="padding: 0 10px;margin:20px 10px;height: 40px;border: 1px solid #ccc; border-radius: 5px;">
+              <option value="">Quận / Huyện</option>
+            </select>
+            <input class="billing_address_1" name="" type="hidden" value="">
+            <input class="billing_address_2" name="" type="hidden" value="">
+            <input type="hidden" name="productIds" class="product-ids" value="">
+            <input type="hidden" name="productQuantity" class="product-quantity" value="">
+            <input type="hidden" name="totalPrice" id="total-price" value="">
+            <input type="text" name="custAddress" placeholder="Xã, tên đường, số nhà"
+              class="cust-address cust-flex-item">
+            <div class="cust-address-validate cust-validate">Vui lòng nhập địa chỉ cụ thể</div>
+          </div>
+          <div class="cust-note-container cust-flex">
+            <input type="text" name="custNote" placeholder="Ghi chú" class="cust-note cust-flex-item">
+          </div>
+        </div>
+        <div class="step-2">
+          <div class="customer-info-header">
+            HÌNH THỨC GIAO HÀNG
+          </div>
+          <div class="pay-options">
+            <div class="pay-asign-container">
+              <label for="pay-asign" class="pay-label">
+                <img src="img/COD.PNG" class="pay-asign-img" alt="">
+                Thanh toán khi nhận hàng
+              </label>
+              <input type="radio" id="pay-asign" name="payAsign" class="pay-asign">
+            </div>
+            <div class="pay-bank-container">
+              <label for="pay-bank" class="pay-label">
+                <img src="img/momo.PNG" class="pay-bank-img" alt="">
+                Thanh toán online bằng Momo, thẻ tín dụng, thẻ ghi nợ, visa...
+              </label>
+              <input type="radio" id="pay-bank" name="payBank" class="pay-bank">
+            </div>
+          </div>
+        </div>
+        <div class="total-price" name="totalPrice">
+          
+        </div>
+        <button class="cust-btn">Tiếp tục thanh toán</button>
+      </form>
+    </div>
+  </div>
+  <div class="delete-wrapper"></div>
+</div>
+<div class="delete-cover bought-disabled"></div>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js'></script>
+<script>//<![CDATA[
+  if (address_2 = localStorage.getItem('address_2_saved')) {
+    $('select[name="calc_shipping_district"] option').each(function () {
+      if ($(this).text() == address_2) {
+        $(this).attr('selected', '')
+      }
+    })
+    $('input.billing_address_2').attr('value', address_2)
+  }
+  if (district = localStorage.getItem('district')) {
+    $('select[name="calc_shipping_district"]').html(district)
+    $('select[name="calc_shipping_district"]').on('change', function () {
+      var target = $(this).children('option:selected')
+      target.attr('selected', '')
+      $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
+      address_2 = target.text()
+      $('input.billing_address_2').attr('value', address_2)
+      district = $('select[name="calc_shipping_district"]').html()
+      localStorage.setItem('district', district)
+      localStorage.setItem('address_2_saved', address_2)
+    })
+  }
+  $('select[name="calc_shipping_provinces"]').each(function () {
+    var $this = $(this),
+      stc = ''
+    c.forEach(function (i, e) {
+      e += +1
+      stc += '<option value=' + e + '>' + i + '</option>'
+      $this.html('<option value="">Tỉnh / Thành phố</option>' + stc)
+      if (address_1 = localStorage.getItem('address_1_saved')) {
+        $('select[name="calc_shipping_provinces"] option').each(function () {
+          if ($(this).text() == address_1) {
+            $(this).attr('selected', '')
+          }
+        })
+        $('input.billing_address_1').attr('value', address_1)
+      }
+      $this.on('change', function (i) {
+        i = $this.children('option:selected').index() - 1
+        var str = '',
+          r = $this.val()
+        if (r != '') {
+          arr[i].forEach(function (el) {
+            str += '<option value="' + el + '">' + el + '</option>'
+            $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>' + str)
+          })
+          var address_1 = $this.children('option:selected').text()
+          var district = $('select[name="calc_shipping_district"]').html()
+          localStorage.setItem('address_1_saved', address_1)
+          localStorage.setItem('district', district)
+          $('select[name="calc_shipping_district"]').on('change', function () {
+            var target = $(this).children('option:selected')
+            target.attr('selected', '')
+            $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
+            var address_2 = target.text()
+            $('input.billing_address_2').attr('value', address_2)
+            district = $('select[name="calc_shipping_district"]').html()
+            localStorage.setItem('district', district)
+            localStorage.setItem('address_2_saved', address_2)
+          })
+        } else {
+          $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>')
+          district = $('select[name="calc_shipping_district"]').html()
+          localStorage.setItem('district', district)
+          localStorage.removeItem('address_1_saved', address_1)
+        }
+      })
+    })
+  })
+//]]></script>
+<script type="module" src="/js/cart.js"></script>

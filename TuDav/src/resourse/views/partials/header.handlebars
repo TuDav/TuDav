@@ -1,0 +1,121 @@
+<div class="header-wrapper">
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 border-bottom">
+      <div href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="hotline">Hotline: 0765427201</span>
+      </div>
+
+      <ul class="nav navbar-icon-lists">
+
+        <li class="nav-item"><a class="nav-icon" href="/me/addNewProduct"><i class="fa-solid fa-square-plus"></i></i></a></li>
+        <li class="nav-item"><a class="nav-icon" href="/items/edit"><i class="fa-solid fa-pen-to-square"></i></a></li>
+        <li class="nav-item"><a class="nav-icon" href="#"><i class="fab fa-facebook-square"></i></i></a></li>
+        <li class="nav-item"><a class="nav-icon" href="#"><i class="fab fa-instagram-square"></i></a></li>
+        <li class="nav-item"><a class="nav-icon" href="#"><i class="fab fa-google-plus-square"></i></a></li>
+      </ul>
+
+      <div class="nav-me">
+        <a class="nav-me-sign" href="/">Đăng kí </a>
+        <p class="nav-me-sign nav-me-divide" href="/">/</p>
+        <a class="nav-me-sign" href="/"> Đăng nhập</a>
+      </div>
+    </header>
+    <div class="row">
+      <div class="col-sm-2 navbar-header-container">
+        <a href="#" class="navbar-header">
+          TuDaV
+        </a>
+      </div>
+      <div class="col-sm-8 nav-main-page-container">
+        <ul class="nav-main-page">
+          <a href="/" class="nav-main-page-item">
+            <li>Trang chủ</li>
+          </a>
+          <a href="/introduce" class="nav-main-page-item">
+            <li>Giới thiệu</li>
+          </a>
+          <a href="/items?display=grid" class="nav-main-page-item nav-products">
+            <li>Sản phẩm</li>
+            
+          </a>
+          <div class="nav-products-options row">
+            <div class="nav-products-container col-3">
+              Áo
+              <a href="/" class="nav-product">Áo polo</a>
+              <a href="" class="nav-product">Áo thun tay dài</a>
+              <a href="" class="nav-product">Áo T-shirt</a>
+            </div>
+            <div class="nav-products-container col-3">
+              Quần
+              <a href="" class="nav-product">Quần Kaki</a>
+              <a href="" class="nav-product">Quần Jean</a>
+              <a href="" class="nav-product">Quần short</a>
+            </div>
+            <div class="nav-products-container col-3">
+              Combo
+              <a href="" class="nav-product">Đồ bộ</a>
+              <a href="" class="nav-product">Suit</a>
+            </div>
+            <div class="nav-products-container col-3">
+              Phụ kiện
+              <a href="" class="nav-product">Thắt lưng</a>
+              <a href="" class="nav-product">Đồng hồ</a>
+              <a href="" class="nav-product">Cà vạt</a>
+            </div>
+          </div>
+          <a href="#" class="nav-main-page-item">
+            <li>Tin tức</li>
+          </a>
+          <a href="#" class="nav-main-page-item">
+            <li>Bộ sưu tập</li>
+          </a>
+          <a href="#" class="nav-main-page-item">
+            <li>Liên hệ</li>
+          </a>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <div class="nav-icons">
+          <a class="nav-icon-item" href="#">
+            <i class="fas fa-search"></i>
+          </a>
+          <a class="nav-icon-item" href="#">
+            <i class="fas fa-sync"></i>
+          </a>
+          <a class="nav-icon-item" href="/cart">
+            <i class="fas fa-cart-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+<button class="toTheTopBtn">
+   <i class="fa-solid fa-angles-up"></i>
+</button>
+</div>
+
+<script  type="module" >
+
+  const goToTopBtn = document.querySelector('.toTheTopBtn')
+if (document.documentElement.scrollTop > 600) {
+   goToTopBtn.setAttribute('style', 'display: block')
+}
+else {
+   goToTopBtn.setAttribute('style', 'display: none')
+}
+window.onscroll = function () {
+   if (document.documentElement.scrollTop > 600) {
+      goToTopBtn.setAttribute('style', 'display: block')
+   }
+   else {
+      goToTopBtn.setAttribute('style', 'display: none')
+   }
+}
+goToTopBtn.onclick = function () {
+   document.documentElement.scrollTop = 0;
+}
+</script>
+

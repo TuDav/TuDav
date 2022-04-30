@@ -1,0 +1,172 @@
+<div class="container ">
+    <div class="row">
+        {{!-- Indexing --}}
+        <div class="col-3">
+            <div class="items-list-header">
+                <i class="fa-solid fa-bars"></i>
+                DANH MỤC SẢN PHẨM
+            </div>
+            <div class="items-list-folder">
+                <a class="product-folder" href="">Phụ kiện
+                    <i class="fa-solid fa-angle-down product-folder-icon"></i>
+                </a>
+                <div class="product-item-container">
+
+                    <a class="product-item" href="">Toàn bộ phụ kiện</a>
+                    <a class="product-item" href="">Thắt lưng</a>
+                    <a class="product-item" href="">Ví nam</a>
+                    <a class="product-item" href="">Cà vạt</a>
+                </div>
+            </div>
+            <div class="items-list-folder">
+                <a class="product-folder" href="">Combo
+                    <i class="fa-solid fa-angle-down product-folder-icon"></i>
+                </a>
+                <div class="product-item-container">
+                    <a class="product-item" href="">Đồ bộ</a>
+                    <a class="product-item" href="">Suit</a>
+                </div>
+            </div>
+            <div class="items-list-folder">
+                <a class="product-folder" href="">Quần
+                    <i class="fa-solid fa-angle-down product-folder-icon"></i>
+                </a>
+                <div class="product-item-container">
+                    <a class="product-item" href="category=trousers&f">Quần Âu</a>
+                    <a class="product-item" href="">Quần Kaki</a>
+                    <a class="product-item" href="">Quần Short</a>
+                </div>
+            </div>
+            <div class="items-list-folder">
+                <a class="product-folder" href="">Áo
+                    <i class="fa-solid fa-angle-down product-folder-icon"></i>
+                </a>
+                <div class="product-item-container">
+                    <a class="product-item" href="category=shirt&f">Áo polo</a>
+                    <a class="product-item" href="">Áo thun tay dài</a>
+                    <a class="product-item" href="">Áo T-shirt</a>
+                </div>
+            </div>
+        </div>
+        {{!-- Items display --}}
+        <div class="col-9">
+            {{!-- Nav --}}
+            <div class="product-nav">
+                <div class="product-type__count">
+                    <h2 class="product-type">
+                        Tất cả sản phẩm
+                    </h2>
+                    <p class="product-count">
+
+                    </p>
+                </div>
+                <div class="product-display dropdown">
+                    <button class="btn btn-secondary dropdown-toggle product-display-btn" type="button"
+                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{title}} {{type}}
+                    </button>
+                    <a href="?display=list" class="product-display-list-icon ">
+                        <i class="fa-solid fa-list"></i>
+                    </a>
+                    <a href="?display=grid" class="product-display-gird-icon container-btn-active">
+                        <i class="fa-solid fa-border-all"></i>
+                    </a>
+                    <ul class="dropdown-menu sort-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            <div class="dropdown-item name-dad__name name-dad">Tên</div>
+                            <div class="child-container__name child-container">
+                                <a class="dropdown-item name-child name-child-asc__name"
+                                    href="_sort&name=trueName&type=desc&e">Z - A</a>
+                                <a class="dropdown-item name-child name-child-desc__name"
+                                    href="_sort&name=trueName&type=asc&e">A - Z</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown-item name-dad__price name-dad">Giá</div>
+                            <div class="child-container__price child-container">
+                                <a class="dropdown-item name-child name-child-desc__price"
+                                    href="_sort&name=price&type=asc&e">Tăng dần </a>
+                                <a class="dropdown-item name-child name-child-asc__price"
+                                    href="_sort&name=price&type=desc&e">Giảm dần</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            {{!-- Items --}}
+            <div class="product-items-container product-grid-container row" style="display: none;">
+                {{!-- Accessory --}}
+                {{#items}}
+                <div class="MIs-product col-4 ">
+                    <a href="items/{{this._id}}" class="MIs-product-wrapper">
+                        <img class="product-item-img" src="{{this.imgAddress}}" alt="">
+
+                        <p class="product-item-name">
+                            {{this.name}}
+                        </p>
+                        <p class="product-item-price">
+                            {{this.price}} đ
+                        </p>
+
+                    </a>
+                    <div class="main-accessory-products-btn">
+                        <a href="" class="main-accessory-products-btn-item">
+                            <i class="fa-solid fa-cart-arrow-down"></i>
+                        </a>
+                        <a href="" class="main-accessory-products-btn-item">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                        <a href="/items/edit/{{this._id}}" class="main-accessory-products-btn-item">
+                            <i class="fa-solid fa-code-compare"></i>
+                        </a>
+                    </div>
+                </div>
+                {{/items}}
+
+            </div>
+            <div class="product-items-container product-list-container">
+
+                {{#items}}
+                <div class="MIs-product">
+                    <a href="items/{{this._id}}" class="MIs-product-wrapper" style="display: flex;">
+                        <img class="product-item-img" src="{{this.imgAddress}}" alt="">
+                        <div class="product-item-info">
+                            <p class="product-item-name">
+                                {{this.name}}
+                            </p>
+                            <p class="product-item-price">
+                                {{this.price}} đ
+                            </p>
+                            <p class="product-item-shortDesc">
+                                {{this.shortDesc}} đ
+                            </p>
+                            <button type="button" class="btn btn-dark product-item-btn">MUA HÀNG</button>
+                        </div>
+                    </a>
+                    <div class="main-accessory-products-btn">
+                        <a href="" class="main-accessory-products-btn-item">
+                            <i class="fa-solid fa-cart-arrow-down"></i>
+                        </a>
+                        <a href="" class="main-accessory-products-btn-item">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                        <a href="/items/edit/{{this._id}}" class="main-accessory-products-btn-item">
+                            <i class="fa-solid fa-code-compare"></i>
+                        </a>
+                    </div>
+                </div>
+                {{/items}}
+
+            </div>
+
+
+            <div class="pagination-container" data-value="{{page}}" data-page="{{countHandle}}" data-perPage="{{perPage}}">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="module" src="/js/items.js"></script>

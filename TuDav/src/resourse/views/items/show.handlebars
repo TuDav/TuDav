@@ -1,0 +1,82 @@
+<div class="container mt-4">
+    <div class="row main-product-desc_container">
+        <div class="col-4">
+            <img class="product-item-img_main" src="/{{item.imgAddress}}" alt="">
+        </div>
+        <div class="col-8 main-product-description">
+            <h2 class="product-item-name_main">
+                {{item.name}}
+            </h2>
+            <span class="product-item-price_main">{{item.price}}</span>
+            <p>{{item.shortDesc}}</p>
+            <div class="counter-container">
+                <button class="counter-btn btn-decrease">-</button>
+                <p class="item-counter"></p>
+                <button class="counter-btn btn-plus">+</button>
+            </div>
+            <button class="buy-btn">Mua ngay</button>
+            <div class="bought-wrapper bought-disabled" id="my-dialog">
+                <div class="bought-notification">
+                    <img src="/{{item.imgAddress}}" class="selected-item-img" alt="">
+                    <div class="bought-notification-container">
+                        <div class="product-item-name">
+                            {{item.name}}
+                        </div>
+                        <p>Được thêm vào giỏ hàng của bạn</p>
+                        <div class="product-item-price">
+                            {{item.price}} đ
+                        </div>
+                        <a href="#" class="see-cart bought-btn">
+                            Xem giỏ hàng
+                        </a>
+                        <a href="#" class="continue-buy bought-btn">
+                            Tiếp tục mua sắm
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row main-product-desc_container">
+        <div class="col-9">
+            <div class="item-charac-container">
+                <p class="item-charac-header">
+                    Đặc điểm nổi bật
+                </p>
+                <div class="item-charac-content">
+                    {{item.specialCharac}}
+                </div>
+            </div>
+            <div class="item-charac-container">
+                <p class="item-charac-header">
+                    Chi tiết sản phẩm
+                </p>
+                <div class="item-charac-content">
+                    {{item.productDetails}}
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <p class="item-charac-header">
+                Sản phẩm cùng loại
+            </p>
+            {{#items}}
+            <a href="{{this._id}}" class="same-item-container">
+                <img src="/{{this.imgAddress}}" class="same-item-img" alt="">
+                <div class="same-item-info-container">
+                    <div class="same-item-name">
+                        {{this.name}}
+                    </div>
+                    <div class="same-item-price">
+                        {{this.price}} đ
+                    </div>
+                </div>
+            </a>
+            {{/items}}
+
+        </div>
+    </div>
+</div>
+<div class="bought-cover bought-disabled"></div>
+
+<script type="module" src="/js/show.js"></script>

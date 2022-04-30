@@ -1,0 +1,24 @@
+<div class="container mt-4 mb-4">
+    <h1>Thêm sản phẩm</h1>
+    <form method="POST" action="/me/store">
+        <div class="mb-3 mt-4 form-group">
+            <label for="name">Tên sản phẩm</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="mb-3 mt-4 form-group">
+            <label for="imgAddress">Link hình ảnh</label>
+            <input type="text" class="form-control" id="imgAddress" value="" name="imgAddress">
+        </div>
+        <div class="mb-3 mt-4 form-group">
+            <label for="price">Giá</label>
+            <input type="number" class="form-control" id="price" name="price">
+        </div>
+        <select class="form-select mb-3 mt-5    " aria-label="Default select example" name="type">
+            <option  value="accessory" selected>Phụ kiện</option>
+            <option value="combo">Combo</option>
+            <option value="trousers" >Quần</option>
+            <option value="shirt">Áo</option>
+        </select>
+        <button type="submit" class="btn btn-primary mb-3 mt-4">Đăng</button>
+    </form>
+</div>

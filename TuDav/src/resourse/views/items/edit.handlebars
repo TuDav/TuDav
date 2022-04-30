@@ -1,0 +1,35 @@
+<div class="container mt-4 mb-4">
+    <h1>Thêm sản phẩm</h1>
+    <form method="POST" action="/items/{{items._id}}?_method=PUT">
+        <div class="mb-3 mt-4 form-group">
+            <label for="name">Tên sản phẩm</label>
+            <input type="text" value="{{items.name}}" class="form-control" id="name" name="name">
+        </div>
+        <div class="mb-3 mt-4 form-group">
+            <label for="imgAddress">Link hình ảnh</label>
+            <input type="text" class="form-control" id="imgAddress"  value="{{items.imgAddress}}" name="imgAddress">
+        </div>
+        <div class="mb-3 mt-4 form-group">
+            <label for="price">Giá</label>
+            <input type="number" class="form-control" id="price" value="{{items.price}}" name="price">
+        </div>
+        <div class="mb-3 mt-4 form-group">
+            <label for="description">Description</label>
+            <input type="text" value="{{description}}" class="form-control" id="description" name="description">
+        </div>
+        <div class="mb-3 mt-4 form-group">
+            <label for="shortDesc">Short-Description</label>
+            <input type="text" value="{{items.shortDesc}}" class="form-control" id="shortDesc" name="shortDesc">
+        </div>
+      
+        <select class="form-select mb-3 mt-5    " aria-label="Default select example" value="{{items.type}}" name="type">
+            <option  value="accessory" selected>Phụ kiện</option>
+            <option value="combo">Combo</option>
+            <option value="trousers" >Quần</option>
+            <option value="shirt">Áo</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary mb-3 ">Đăng</button>
+    </form>
+</div>
+<script type="module" src="/js/edit.js"></script>
